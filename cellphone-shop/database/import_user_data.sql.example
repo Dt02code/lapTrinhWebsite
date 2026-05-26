@@ -1,0 +1,23 @@
+-- ============================================================
+-- HƯỚNG DẪN: Gắn CSDL SQL CỦA BẠN VÀO WEB
+-- ============================================================
+-- Nếu bạn ĐÃ CÓ file .sql sẵn, làm theo 1 trong 2 cách:
+--
+-- CÁCH A — Giữ nguyên bảng của bạn (đổi tên cột trong PHP)
+--   1. Import file SQL của bạn vào MySQL (phpMyAdmin → Import)
+--   2. Mở config/database.php → sửa DB_NAME cho đúng tên database
+--   3. Sửa includes/functions.php cho khớp tên bảng/cột của bạn
+--
+-- CÁCH B — Dùng schema mẫu của project (khuyên dùng cho bài tập)
+--   1. Import: database/schema.sql
+--   2. Import: database/sample_data.sql  (hoặc thay bằng data của bạn)
+--   3. Nếu data bạn khác cấu trúc, map cột như sau:
+--
+--   Bảng danh_muc:  id, ten, slug
+--   Bảng san_pham:  id, danh_muc_id, ten, slug, gia, gia_cu,
+--                   hinh_anh, mo_ta, thong_so, ton_kho, noi_bat
+--   slug danh mục:  'dien-thoai' | 'laptop'
+--
+-- Ví dụ INSERT sản phẩm của bạn:
+-- INSERT INTO san_pham (danh_muc_id, ten, slug, gia, hinh_anh, mo_ta)
+-- VALUES (1, 'Tên máy của bạn', 'ten-may', 15000000, 'duong-dan-anh.jpg', 'Mô tả...');
